@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exam Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(244, 213, 156);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url("26382126-0-Manah.webp");
+        }
+
+        .muj-logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .muj-logo img {
+            width: 170px; /* Adjust the size as needed */
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .login, .result {
+            display: none;
+        }
+        .login.active, .result.active {
+            display: block;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="muj-logo">
+        <img src="muj.jpeg" alt="manipal">
+    </div>
+    <div class="container">
+        <div class="login active" id="loginForm">
+            <h2 class="title">Login</h2>
+            <form onsubmit="return checkLogin()">
+                <label for="regID">Registration ID:</label><br>
+                <input type="text" id="regID" name="regID" required><br><br>
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" required><br><br>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+        <div class="result" id="resultPage">
+            <h2 class="title">Semester II, Jan-May 2024</h2>
+            <p>Name: PRATYUSH SHANKAR</p>
+            <p>ID: <span id="studentID"></span></p>
+            <p>Section: E2</p>
+            <table>
+                <tr>
+                    <th>Subject</th>
+                    <th>Grade</th>
+                </tr>
+                <tr>
+                    <td>Engineering Physics</td>
+                    <td>B</td>
+                </tr>
+                <tr>
+                    <td>Engineering Materials</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td>Computational Mathematics</td>
+                    <td>C</td>
+                </tr>
+                <tr>
+                    <td>Biology for Engineers</td>
+                    <td>B</td>
+                </tr>
+                <tr>
+                    <td>MATLAB</td>
+                    <td>B</td>
+                </tr>
+                <tr>
+                    <td>IOT Lab</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td>EVS</td>
+                    <td>C</td>
+                </tr>
+                <tr>
+                    <td>Constitution</td>
+                    <td>S</td>
+                </tr>
+                <tr>
+                    <td>Human Values</td>
+                    <td>S</td>
+                </tr>
+            </table>
+            <p>CGPA: 8.00</p>
+        </div>
+    </div>
+    <script>
+        function checkLogin() {
+            const regID = document.getElementById('regID').value;
+            const correctRegID = '23FE10ITE00242';
+
+            if (regID === correctRegID) {
+                document.getElementById('studentID').innerText = regID;
+                document.getElementById('loginForm').classList.remove('active');
+                document.getElementById('resultPage').classList.add('active');
+                return false; // Prevent form submission
+            } else {
+                alert('Invalid Registration ID');
+                return false; // Prevent form submission
+            }
+        }
+    </script>
+</body>
+</html>
